@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mnm-car-listing
+  namespace: mnm-car-recommend
+  labels:
+    app: mnm-car-listing
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mnm-car-listing
+  template:
+    metadata:
+      name: mnm-car-listing
+      labels:
+        app: mnm-car-listing
+    spec:
+      containers:
+        - name: mnm-car-listing
+          image: mnm-car-listing:0.1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8081
+      restartPolicy: Always

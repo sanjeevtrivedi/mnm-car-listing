@@ -1,0 +1,11 @@
+FROM eclipse-temurin:11.0.16.1_1-jre-alpine@sha256:dc28ac69ce6118cb9a4da85de8de7592d3a006af971cf398f1280590d30e82bc
+RUN apk add dumb-init && \
+    mkdir /home/app && \
+	addgroup --system javauser && \
+	adduser -S -s /bin/false -G javauser javauser && \
+	chown -R javauser:javauser /home/app
+WORKDIR /home/app
+USER javauser
+EXPOSE 8081
+COPY target/mnm-car-*.jar /home/app/mnm-car-listing.jar
+ENTRYPOINT ["java", "-jar", "/home/app/mnm-car-listing.jar"]

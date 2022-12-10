@@ -1,0 +1,18 @@
+micronaut:
+  application:
+    name: mnmCarListing
+  server:
+    port: 8081
+endpoints:
+  health:
+    enabled: true
+    sensitive: false
+#    details-visible: ANONYMOUS
+netty:
+  default:
+    allocator:
+      max-order: 3
+logger:
+  levels:
+    net.mnm.adc.listing: DEBUG
+
