@@ -2,10 +2,10 @@ FROM maven:3.8.6-eclipse-temurin-11-alpine@sha256:c6e6e920d20631d39b1ac21a1740cb
 RUN mkdir -p /mnm-project/src
 COPY pom.xml /mnm-project/
 
-#COPY ./src /mnm-project/src
-COPY ./target/mnm-* /mnm-project/target/
+COPY ./src /mnm-project/src
+#COPY ./target/mnm-* /mnm-project/target/
 WORKDIR /mnm-project
-#RUN mvn clean package -DskipTests
+RUN mvn clean package -DskipTests
 
 RUN apk add --no-cache binutils
 RUN $JAVA_HOME/bin/jlink \
