@@ -1,4 +1,4 @@
-## Mahindra Car Listing - Demo Project
+## MnM Car Listing - Demo Project
 
 - Dummy project to configure developer workbench
 
